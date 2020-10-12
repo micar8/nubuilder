@@ -14,25 +14,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get -qq update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
-    apt-get -y install apache2 libarchive-zip-perl libclone-perl \
-    libconfig-std-perl libdatetime-perl libdbd-pg-perl libdbi-perl \
-    libemail-address-perl  libemail-mime-perl libfcgi-perl libjson-perl \
-    liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl \
-    libparams-validate-perl libpdf-api2-perl librose-db-object-perl \
-    librose-db-perl librose-object-perl libsort-naturally-perl \
-    libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl \
-    libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl \
-    libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
-    libfile-copy-recursive-perl libalgorithm-checkdigits-perl \
-    libcrypt-pbkdf2-perl git libcgi-pm-perl libtext-unidecode-perl libwww-perl  \
-    postgresql-contrib aqbanking-tools poppler-utils libhtml-restrict-perl \
-    libdatetime-set-perl libset-infinite-perl liblist-utilsby-perl \
-    libdaemon-generic-perl libfile-flock-perl libfile-slurp-perl \
-    libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
-    libdatetime-event-cron-perl libexception-class-perl sed supervisor \
-    texlive-base-bin texlive-latex-recommended \
-    texlive-fonts-recommended texlive-latex-extra texlive-lang-german \
-    texlive-generic-extra mc phppgadmin libpq5
+    apt-get -y install mysql-server apache2 php php-mysql unzip libapache2-mod-php php-mbstring
     
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
