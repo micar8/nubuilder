@@ -55,6 +55,19 @@ RUN ufw allow 8080
 
 EXPOSE 80
 EXPOSE 443
+
+# And add ``listen_addresses`` to ``/etc/postgresql/${postgresversion}/main/postgresql.conf``
+RUN sed -ri "$a[client]" "/etc/alternatives/my.cnf"
+RUN sed -ri "$aport=3306" "/etc/alternatives/my.cnf"
+RUN sed -ri "$asocket=/tmp/mysql.sock" "/etc/alternatives/my.cnf"
+RUN sed -ri "$a[mysqld]" "/etc/alternatives/my.cnf"
+RUN sed -ri "$aport=3306" "/etc/alternatives/my.cnf"
+RUN sed -ri "$asocket=/tmp/mysql.sock" "/etc/alternatives/my.cnf"
+RUN sed -ri "$akey_buffer_size=16M" "/etc/alternatives/my.cnf"
+RUN sed -ri "$amax_allowed_packet=8M" "/etc/alternatives/my.cnf"
+RUN sed -ri "$asql-mode=NO_ENGINE_SUBSTITUTION" "/etc/alternatives/my.cnf"
+RUN sed -ri "$a[mysqldump]" "/etc/alternatives/my.cnf"
+RUN sed -ri "$aquick" "/etc/alternatives/my.cnf"
  
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
