@@ -18,8 +18,6 @@ RUN git clone https://github.com/steven-copley/nubuilder4.git /var/www/nubuilder
 RUN cd /var/www/nubuilder4 && git checkout master
 
 # mysql Database
-# Create a PostgreSQL role named ``docker`` with ``docker`` as the password and
-# then create a database `docker` owned by the ``docker`` role.
 RUN mysql -u root -p &&\
     CREATE DATABASE nubuilder4; &&\
     quit
