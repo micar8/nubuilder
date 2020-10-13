@@ -75,5 +75,9 @@ ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 # Add VOLUMEs to allow backup of config, logs and databases
 VOLUME  ["/var/www/html/nubuilder4", "/home"]
 
+# Scripts
+ADD start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/*.sh
+
 # By default, simply start apache.
 CMD ["/usr/local/bin/start.sh"]
