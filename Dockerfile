@@ -35,8 +35,8 @@ USER root
 RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd
 
 # SET Servername to localhost
-RUN echo "ServerName localhost" >> /etc/apache2/conf-available/servername.conf
-RUN a2enconf servername
+#RUN echo "ServerName localhost" >> /etc/apache2/conf-available/servername.conf
+#RUN a2enconf servername
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
