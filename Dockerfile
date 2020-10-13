@@ -14,8 +14,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
 
 # ADD nuBuilder
 # nuBuilder intallation
-RUN git clone https://github.com/steven-copley/nubuilder4.git /var/www/nubuilder4
-RUN cd /var/www/nubuilder4 && git checkout -b
+RUN git clone https://github.com/steven-copley/nubuilder4.git /var/www/html/nubuilder4
+RUN cd /var/www/html/nubuilder4 && git checkout -b
 
 # mysql Database
 RUN mysql -u root -p &&\
@@ -73,7 +73,7 @@ RUN sed -ri "$aquick" "/etc/alternatives/my.cnf"
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
  
 # Add VOLUMEs to allow backup of config, logs and databases
-VOLUME  ["/var/www/nubuilder4", "/home"]
+VOLUME  ["/var/www/html/nubuilder4", "/home"]
 
 # By default, simply start apache.
 CMD ["/usr/local/bin/start.sh"]
