@@ -76,6 +76,8 @@ ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 VOLUME  ["/var/www/html/nubuilder4", "/home"]
 
 # Scripts
+ADD supervisord-apache2.conf /etc/supervisor/conf.d/supervisord-apache2.conf
+ADD supervisord-apache2.sh /usr/local/bin/supervisord-apache2.sh
 ADD start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/*.sh
 
