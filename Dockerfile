@@ -15,7 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
 # ADD nuBuilder
 # nuBuilder intallation
 RUN git clone https://github.com/steven-copley/nubuilder4.git /var/www/nubuilder4
-RUN cd /var/www/nubuilder4 && git checkout master
+RUN cd /var/www/nubuilder4 && git checkout -b
 
 # mysql Database
 RUN mysql -u root -p &&\
